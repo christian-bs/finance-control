@@ -13,5 +13,5 @@ transactionRouter.patch(
     '/updateTransaction',
     transactionService.updateTransaction
 );
-
+transactionRouter.delete('/delete/:id', transactionService.deleteTransaction);
 export default transactionRouter;

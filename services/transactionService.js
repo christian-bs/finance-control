@@ -132,9 +132,22 @@ const updateTransaction = async (req, res) => {
     }
 };
 
+const deleteTransaction = async (req, res) => {
+    const id = req.params.id;
+    try {
+        await TransactionModel.deleteOne({ _id: id });
+        res.status(200).send();
+    } catch (error) {
+        res.status(500).send(
+            `Erro ao deletar a transação com a descrição solicitada ${id} - Erro:${error}`
+        );
+    }
+};
+
 export default {
     getPeriodTransactions,
     getTransaction,
     insertTransaction,
     updateTransaction,
+    deleteTransaction,
 };
