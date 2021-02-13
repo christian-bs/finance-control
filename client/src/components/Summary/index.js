@@ -3,7 +3,6 @@ import { currencyFormat } from '../../helper.js';
 
 const Summary = ({ transactions }) => {
     const transactionsCount = transactions.length;
-
     const summary = transactions.reduce(
         (summary, current) => {
             current.type === '+'

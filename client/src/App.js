@@ -61,6 +61,7 @@ export default function App() {
     };
 
     const handleAddButtonClick = () => {
+        setSelectedTransaction({});
         setIsModalOpen(true);
     };
 
@@ -68,6 +69,8 @@ export default function App() {
         let response;
         if (!transaction._id) {
             response = await api.insertTransaction(transaction);
+            filteredTransactions.push(transaction);
+            periodTransactions.push(transaction);
             const message =
                 response === 'OK' ? 'Inserido com sucesso' : response;
             M.toast({ html: message, classes: 'rounded' });
